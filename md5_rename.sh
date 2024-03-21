@@ -1,10 +1,10 @@
 count=0
-for i in $(find | grep ".eml")
-do  
-    path=`dirname $i`
-    md5=`md5sum ${i}| awk '{print $1}'`
-    newfile=`mv ${i} ${path}"/"$md5".eml"`
-    count=$((count+1))
-done
+exportdir=export
+while read LINE; do 
+    echo "$LINE"
+    path=$(dirname "$LINE")
+    md5=$(md5sum "${LINE}" | awk '{print $1}')
+    action=$(mv "${LINE}" "${path}/${md5}.eml")
+    let count=count+1
+done < <(find ./${exportdir} -type f -name '*.eml')
 echo "Total Files Renamed: " $count
-

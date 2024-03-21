@@ -13,13 +13,7 @@ First of all, you will need to install the following:
 
 On debian systems they can be installed like so:
 
-`sudo apt install libpst4:xxxxx pst-utils reaspst`
-
-if you are unsure which are available, you can do:
-
-`apt search libpst4` 
-and so on to see if they are available in your repo's.
-
+`sudo apt install pst-utils`
 
 ## to_eml.sh
 
@@ -37,12 +31,16 @@ Use the script as following:
 2. bash to_eml.sh
 3. let it run
 
-## md5rename.sh
+## md5_rename.sh
 
 This script renames your eml files in all the various directories to have a unique name by renaming it to it's md5 hash value.
 when it finds an eml file, it does md5sum on the file, then renames the file to hash.eml
 
 This will be useful later when we want to de-duplicate any emails before we add them into a database.
+
+## find_dupes.sh
+
+This script will show the duplicate files.
 
 ## Author Notes
 If you have any suggestions, improvements or any kind of questions about the scripts, please feel free to reach out to me here.
